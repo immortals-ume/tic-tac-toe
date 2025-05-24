@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
+import {Box, Container} from '@mui/material';
+import Header from './components/Header';
+import SymbolChooser from './components/ChooseSymbol';
+import GameInfo from './components/GameInfo';
+import GameControls from './components/GameControls';
+import StatsPanel from './components/Statistic';
+import Footer from './components/Footer';
 import Board from './components/Board';
-import { GameLogic} from './logic/GameLogic';
+import {GameLogic} from './logic/GameLogic';
+
 
 const App: React.FC = () => {
     const [game, setGame] = useState<GameLogic | null>(null);
     const [playerSymbol, setPlayerSymbol] = useState<'X' | 'O' | null>(null);
-    const [stats, setStats] = useState({
-        wins: 0,
-        losses: 0,
-        draws: 0
-    });
+    const [stats, setStats] = useState({wins: 0, losses: 0, draws: 0});
+
 
     useEffect(() => {
         if (game?.winner) {
-            setStats(prevStats => {
-                if (game.winner === 'Draw') {
-                    return { ...prevStats, draws: prevStats.draws + 1 };
-                } else if (game.winner === game.playerSymbol) {
-                    return { ...prevStats, wins: prevStats.wins + 1 };
-                } else {
-                    return { ...prevStats, losses: prevStats.losses + 1 };
-                }
+            setStats(prev => {
+                if (game.winner === 'Draw') return {...prev, draws: prev.draws + 1};
+                if (game.winner === game.playerSymbol) return {...prev, wins: prev.wins + 1};
+                return {...prev, losses: prev.losses + 1};
             });
         }
     }, [game?.winner]);
-
 
     useEffect(() => {
         if (game && !game.isPlayerTurn && !game.winner) {
@@ -44,80 +44,39 @@ const App: React.FC = () => {
         if (!game || game.winner || !game.isPlayerTurn) return;
         const newGame = new GameLogic(game.playerSymbol);
         Object.assign(newGame, game);
-
-        if (newGame.playerMove(idx)) {
-            setGame(newGame);
-        }
+        if (newGame.playerMove(idx)) setGame(newGame);
     };
 
     const resetGame = () => {
         setPlayerSymbol(null);
         setGame(null);
     };
-    const resetStats = () => {
-        setStats({
-            wins: 0,
-            losses: 0,
-            draws: 0
-        });
-    };
 
-
-
-
-    if (!playerSymbol) {
-        return (
-            <div style={{ textAlign: 'center', marginTop: 50 }}>
-                <h1>Choose your symbol</h1>
-                <button onClick={() => handleChooseSymbol('X')} style={{ marginRight: 20, padding: '10px 20px', fontSize: 24 }}>
-                    X
-                </button>
-                <button onClick={() => handleChooseSymbol('O')} style={{ padding: '10px 20px', fontSize: 24 }}>
-                    O
-                </button>
-            </div>
-        );
-    }
+    const resetStats = () => setStats({wins: 0, losses: 0, draws: 0});
 
     return (
-        <div style={{ textAlign: 'center', marginTop: 50 }}>
-            <h1>Tic Tac Toe</h1>
-            <Board squares={game?.board || Array(9).fill(null)} onClick={handleClick} />
-            <div style={{ fontSize: 24, margin: '20px 0' }}>
-                {game ? (
-                    game.winner ? (
-                        game.winner === 'Draw' ? "It's a Draw!" : `Winner: ${game.winner}`
-                    ) : (
-                        `Next player: ${game.isPlayerTurn ? 'You' : 'AI'} (${game.isPlayerTurn ? game.playerSymbol : game.aiSymbol})`
-                    )
+
+        <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
+            <Header/>
+            <Container sx={{flexGrow: 1, textAlign: 'center', py: 5}}>
+                {!playerSymbol ? (
+                    <SymbolChooser onChoose={handleChooseSymbol}/>
                 ) : (
-                    "Please start the game."
+                    <>
+                        <Board squares={game?.board || Array(9).fill(null)} onClick={handleClick}/>
+                        <GameInfo
+                            winner={game?.winner || null}
+                            isPlayerTurn={game?.isPlayerTurn || false}
+                            playerSymbol={game?.playerSymbol || 'X'}
+                            aiSymbol={game?.aiSymbol || 'O'}
+                        />
+                        <GameControls onRestart={resetGame}/>
+                        <StatsPanel stats={stats} playerSymbol={playerSymbol} onResetStats={resetStats}/>
+                    </>
                 )}
-            </div>
-            <button onClick={resetGame} style={{ padding: '10px 20px', fontSize: 16 }}>
-                Restart Game
-            </button>
-
-            <div style={{ margin: '20px 0', fontSize: 18 }}>
-                <h2>Statistics</h2>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-                    <div>Wins: {stats.wins}</div>
-                    <div>Losses: {stats.losses}</div>
-                    <div>Draws: {stats.draws}</div>
-                </div>
-            </div>
-
-            <button
-                onClick={resetStats}
-                style={{
-                    padding: '5px 10px',
-                    fontSize: 14,
-                    marginTop: '10px'
-                }}
-            >
-                Reset Stats
-            </button>
-        </div>
+            </Container>
+            <Footer/>
+        </Box>
     );
 };
 

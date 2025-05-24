@@ -97,7 +97,7 @@ export function checkWinner(board: Player[]): Player | 'Draw' | null {
     for (const combo of WIN_COMBINATIONS) {
         const [a, b, c] = combo;
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-            return board[a]; // 'X' or 'O'
+            return board[a];
         }
     }
     return board.every(cell => cell !== null) ? 'Draw' : null;
