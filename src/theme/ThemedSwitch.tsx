@@ -1,5 +1,5 @@
 import React from 'react';
-import {Fade, FormControlLabel, styled, Switch, Typography, useMediaQuery,} from '@mui/material';
+import {Fade, FormControlLabel, styled, Switch, Typography, useMediaQuery} from '@mui/material';
 
 const ThemedSwitch = styled(Switch)(({theme}) => ({
     width: 62,
