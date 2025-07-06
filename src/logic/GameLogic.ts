@@ -1,34 +1,24 @@
+import { getBestMoveWithSymbol } from './ai';
+import { PlayerSymbol, BoardSquare, GameResult } from '../constants/gameConstants';
+import { checkWinner, isBoardFull, getOppositeSymbol, createEmptyBoard } from '../utils/gameUtils';
 
-
-import { getBestMoveWithSymbol} from './ai';
-
-export type Player = 'X' | 'O' | null;
 export class GameLogic {
-    board: Player[];
+    board: BoardSquare[];
     isPlayerTurn: boolean;
-    winner: Player | 'Draw' | null;
-    playerSymbol: 'X' | 'O';
-    aiSymbol: 'X' | 'O';
+    winner: PlayerSymbol | GameResult.DRAW | null;
+    playerSymbol: PlayerSymbol;
+    aiSymbol: PlayerSymbol;
 
-    constructor(playerSymbol: 'X' | 'O' = 'X') {
-        this.board = Array(9).fill(null);
+    constructor(playerSymbol: PlayerSymbol = PlayerSymbol.X) {
+        this.board = createEmptyBoard();
         this.playerSymbol = playerSymbol;
-        this.aiSymbol = playerSymbol === 'X' ? 'O' : 'X';
-        this.isPlayerTurn = playerSymbol === 'X';
+        this.aiSymbol = getOppositeSymbol(playerSymbol);
+        this.isPlayerTurn = playerSymbol === PlayerSymbol.X;
         this.winner = null;
     }
 
-    private checkWinner(player: Player): boolean {
-        const WIN_COMBINATIONS: number[][] = [
-            [0,1,2],[3,4,5],[6,7,8],
-            [0,3,6],[1,4,7],[2,5,8],
-            [0,4,8],[2,4,6]
-        ];
-        return WIN_COMBINATIONS.some(combo => combo.every(i => this.board[i] === player));
-    }
-
-    private isBoardFull(): boolean {
-        return this.board.every(sq => sq !== null);
+    private checkWinnerForPlayer(player: PlayerSymbol): boolean {
+        return checkWinner(this.board) === player;
     }
 
     playerMove(idx: number): boolean {
@@ -36,10 +26,10 @@ export class GameLogic {
 
         this.board[idx] = this.playerSymbol;
 
-        if (this.checkWinner(this.playerSymbol)) {
+        if (this.checkWinnerForPlayer(this.playerSymbol)) {
             this.winner = this.playerSymbol;
-        } else if (this.isBoardFull()) {
-            this.winner = 'Draw';
+        } else if (isBoardFull(this.board)) {
+            this.winner = GameResult.DRAW;
         } else {
             this.isPlayerTurn = false;
         }
@@ -54,19 +44,19 @@ export class GameLogic {
 
         this.board[move] = this.aiSymbol;
 
-        if (this.checkWinner(this.aiSymbol)) {
+        if (this.checkWinnerForPlayer(this.aiSymbol)) {
             this.winner = this.aiSymbol;
-        } else if (this.isBoardFull()) {
-            this.winner = 'Draw';
+        } else if (isBoardFull(this.board)) {
+            this.winner = GameResult.DRAW;
         } else {
             this.isPlayerTurn = true;
         }
         return true;
     }
 
-    reset() {
-        this.board = Array(9).fill(null);
-        this.isPlayerTurn = this.playerSymbol === 'X';
+    reset(): void {
+        this.board = createEmptyBoard();
+        this.isPlayerTurn = this.playerSymbol === PlayerSymbol.X;
         this.winner = null;
     }
 }

@@ -1,0 +1,69 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "serviceworker": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "rules": {
+
+
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "prefer-const": "error",
+    "no-var": "error",
+    "no-debugger": "error",
+    "no-alert": "error",
+    "no-unreachable": "error",
+    "no-constant-condition": "error",
+    "no-empty": "warn",
+    "no-extra-semi": "error",
+    "no-trailing-spaces": "error",
+    "eol-last": "error",
+
+    "react/jsx-key": "error",
+    "react/jsx-no-duplicate-props": "error",
+    "react/jsx-no-target-blank": "error",
+    "react/no-array-index-key": "warn",
+    "react/no-unescaped-entities": "error",
+    "react/void-dom-elements-no-children": "error",
+  "  no-restricted-globals": [
+      "error",
+      {
+        "name": "self",
+        "message": "Use with caution. Add exception only if required."
+      },
+    "export","import"
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["src/constants/**/*.ts"],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    }
+  ]
+}

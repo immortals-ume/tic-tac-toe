@@ -1,0 +1,78 @@
+{
+  "landing": {
+    "title": "Bienvenue au Tic Tac Toe",
+    "subtitle": "Choisissez un mode de jeu pour commencer",
+    "singlePlayer": "Un Joueur (vs IA)",
+    "multiPlayer": "Multijoueur (2 Joueurs)"
+  },
+  "chooseSymbol": {
+    "singleTitle": "Choisissez Votre Symbole",
+    "multiTitle": "Choisissez le Symbole du Joueur 1",
+    "singleDesc": "Voulez-vous jouer comme X ou O ?",
+    "multiDesc": "Le Joueur 1 jouera comme X ou O. Le Joueur 2 aura l'autre symbole."
+  },
+  "gameInfo": {
+    "draw": "C'est un Match Nul !",
+    "winner": "Gagnant : ",
+    "yourTurn": "Votre tour",
+    "aiTurn": "Tour de l'IA",
+    "player1Turn": "Tour du Joueur 1",
+    "player2Turn": "Tour du Joueur 2",
+    "nextPlayer": "Joueur suivant : ",
+    "you": "Vous",
+    "ai": "IA"
+  },
+  "gameBoard": {
+    "title": "Tic Tac Toe",
+    "restart": "Redémarrer / Choisir Symbole"
+  },
+  "offline": {
+    "message": "Vous êtes hors ligne. Certaines fonctionnalités peuvent être limitées."
+  },
+  "installPrompt": {
+    "title": "Installer l'App",
+    "description": "Ajoutez cette app à votre appareil pour un accès rapide et facile, même hors ligne.",
+    "install": "Installer",
+    "notNow": "Pas Maintenant"
+  },
+  "pwaSettings": {
+    "title": "Paramètres PWA",
+    "operationSuccess": "Opération terminée avec succès !",
+    "swStatus": "Statut du Service Worker",
+    "supported": "Pris en charge :",
+    "registered": "Enregistré :",
+    "installed": "Installé :",
+    "onlineStatus": "Statut en Ligne :",
+    "yes": "Oui",
+    "no": "Non",
+    "online": "En Ligne",
+    "offline": "Hors Ligne",
+    "cacheManagement": "Gestion du Cache",
+    "cacheSize": "Taille du Cache :",
+    "clearingCache": "Nettoyage du cache...",
+    "clearAllCaches": "Vider Tous les Caches",
+    "swActions": "Actions du Service Worker",
+    "updateSW": "Mettre à Jour le Service Worker",
+    "unregisterSW": "Désenregistrer le Service Worker",
+    "info": "Ces paramètres vous permettent de gérer les fonctionnalités de l'Application Web Progressive. Vider le cache libérera de l'espace de stockage mais peut affecter la fonctionnalité hors ligne.",
+    "close": "Fermer"
+  },
+  "serviceWorkerUpdate": {
+    "updateAvailable": "Mise à Jour Disponible",
+    "updateMessage": "Une nouvelle version de l'app est disponible. Cliquez pour mettre à jour et obtenir les dernières fonctionnalités !",
+    "updateNow": "Mettre à Jour Maintenant",
+    "reload": "Recharger"
+  },
+  "stats": {
+    "losses": "Pertes",
+    "singlePlayer": "Un Joueur",
+    "multiplayer": "Multijoueur"
+  },
+  "header": {
+    "goToHome": "Aller à l'Accueil",
+    "unmuteSound": "Activer le Son",
+    "muteSound": "Couper le Son",
+    "pwaSettings": "Paramètres PWA",
+    "changeLanguage": "Changer de Langue"
+  }
+} 

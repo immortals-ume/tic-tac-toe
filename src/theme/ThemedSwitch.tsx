@@ -1,5 +1,5 @@
 import React from 'react';
-import {Fade, FormControlLabel, styled, Switch, Typography, useMediaQuery} from '@mui/material';
+import {Fade, FormControlLabel, styled, Switch, Typography} from '@mui/material';
 
 const ThemedSwitch = styled(Switch)(({theme}) => ({
     width: 62,
@@ -58,9 +58,7 @@ interface ThemeToggleProps {
 }
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({darkMode, toggleTheme}) => {
-    const isMobile = useMediaQuery('(max-width:600px)');
     const labelText = darkMode ? 'Dark' : 'Light';
-
     return (
         <FormControlLabel
             control={
@@ -78,5 +76,4 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({darkMode, toggleTheme}) => {
         />
     );
 };
-
 export default ThemeToggle;

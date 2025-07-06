@@ -1,0 +1,78 @@
+{
+  "landing": {
+    "title": "Welcome to Tic Tac Toe",
+    "subtitle": "Choose a game mode to start playing",
+    "singlePlayer": "Single Player (vs AI)",
+    "multiPlayer": "Multiplayer (2 Players)"
+  },
+  "chooseSymbol": {
+    "singleTitle": "Choose Your Symbol",
+    "multiTitle": "Choose Player 1 Symbol",
+    "singleDesc": "Will you play as X or O?",
+    "multiDesc": "Player 1 will play as X or O. Player 2 will get the other symbol."
+  },
+  "gameInfo": {
+    "draw": "It's a Draw!",
+    "winner": "Winner: ",
+    "yourTurn": "Your Turn",
+    "aiTurn": "AI's Turn",
+    "player1Turn": "Player 1's Turn",
+    "player2Turn": "Player 2's Turn",
+    "nextPlayer": "Next player: ",
+    "you": "You",
+    "ai": "AI"
+  },
+  "gameBoard": {
+    "title": "Tic Tac Toe",
+    "restart": "Restart / Choose Symbol"
+  },
+  "offline": {
+    "message": "You're offline. Some features may be limited."
+  },
+  "installPrompt": {
+    "title": "Install App",
+    "description": "Add this app to your device for quick and easy access, even offline.",
+    "install": "Install",
+    "notNow": "Not Now"
+  },
+  "pwaSettings": {
+    "title": "PWA Settings",
+    "operationSuccess": "Operation completed successfully!",
+    "swStatus": "Service Worker Status",
+    "supported": "Supported:",
+    "registered": "Registered:",
+    "installed": "Installed:",
+    "onlineStatus": "Online Status:",
+    "yes": "Yes",
+    "no": "No",
+    "online": "Online",
+    "offline": "Offline",
+    "cacheManagement": "Cache Management",
+    "cacheSize": "Cache Size:",
+    "clearingCache": "Clearing cache...",
+    "clearAllCaches": "Clear All Caches",
+    "swActions": "Service Worker Actions",
+    "updateSW": "Update Service Worker",
+    "unregisterSW": "Unregister Service Worker",
+    "info": "These settings allow you to manage the Progressive Web App features. Clearing cache will free up storage space but may affect offline functionality.",
+    "close": "Close"
+  },
+  "serviceWorkerUpdate": {
+    "updateAvailable": "Update Available",
+    "updateMessage": "A new version of the app is available. Click to update and get the latest features!",
+    "updateNow": "Update Now",
+    "reload": "Reload"
+  },
+  "stats": {
+    "losses": "Losses",
+    "singlePlayer": "Single Player",
+    "multiplayer": "Multiplayer"
+  },
+  "header": {
+    "goToHome": "Go to Home",
+    "unmuteSound": "Unmute Sound",
+    "muteSound": "Mute Sound",
+    "pwaSettings": "PWA Settings",
+    "changeLanguage": "Change Language"
+  }
+} 

@@ -1,0 +1,78 @@
+{
+  "landing": {
+    "title": "Bienvenido al Tres en Raya",
+    "subtitle": "Elige un modo de juego para comenzar",
+    "singlePlayer": "Un Jugador (vs IA)",
+    "multiPlayer": "Multijugador (2 Jugadores)"
+  },
+  "chooseSymbol": {
+    "singleTitle": "Elige Tu Símbolo",
+    "multiTitle": "Elige Símbolo del Jugador 1",
+    "singleDesc": "¿Jugarás como X u O?",
+    "multiDesc": "El Jugador 1 jugará como X u O. El Jugador 2 obtendrá el otro símbolo."
+  },
+  "gameInfo": {
+    "draw": "¡Es un Empate!",
+    "winner": "Ganador: ",
+    "yourTurn": "Tu Turno",
+    "aiTurn": "Turno de la IA",
+    "player1Turn": "Turno del Jugador 1",
+    "player2Turn": "Turno del Jugador 2",
+    "nextPlayer": "Siguiente jugador: ",
+    "you": "Tú",
+    "ai": "IA"
+  },
+  "gameBoard": {
+    "title": "Tres en Raya",
+    "restart": "Reiniciar / Elegir Símbolo"
+  },
+  "offline": {
+    "message": "Estás desconectado. Algunas funciones pueden estar limitadas."
+  },
+  "installPrompt": {
+    "title": "Instalar App",
+    "description": "Añade esta app a tu dispositivo para acceso rápido y fácil, incluso sin conexión.",
+    "install": "Instalar",
+    "notNow": "Ahora No"
+  },
+  "pwaSettings": {
+    "title": "Configuración PWA",
+    "operationSuccess": "¡Operación completada con éxito!",
+    "swStatus": "Estado del Service Worker",
+    "supported": "Soportado:",
+    "registered": "Registrado:",
+    "installed": "Instalado:",
+    "onlineStatus": "Estado en Línea:",
+    "yes": "Sí",
+    "no": "No",
+    "online": "En Línea",
+    "offline": "Desconectado",
+    "cacheManagement": "Gestión de Caché",
+    "cacheSize": "Tamaño de Caché:",
+    "clearingCache": "Limpiando caché...",
+    "clearAllCaches": "Limpiar Todos los Cachés",
+    "swActions": "Acciones del Service Worker",
+    "updateSW": "Actualizar Service Worker",
+    "unregisterSW": "Desregistrar Service Worker",
+    "info": "Esta configuración te permite gestionar las funciones de la Aplicación Web Progresiva. Limpiar el caché liberará espacio de almacenamiento pero puede afectar la funcionalidad sin conexión.",
+    "close": "Cerrar"
+  },
+  "serviceWorkerUpdate": {
+    "updateAvailable": "Actualización Disponible",
+    "updateMessage": "¡Hay una nueva versión de la app disponible. Haz clic para actualizar y obtener las últimas funciones!",
+    "updateNow": "Actualizar Ahora",
+    "reload": "Recargar"
+  },
+  "stats": {
+    "losses": "Pérdidas",
+    "singlePlayer": "Un Jugador",
+    "multiplayer": "Multijugador"
+  },
+  "header": {
+    "goToHome": "Ir al Inicio",
+    "unmuteSound": "Activar Sonido",
+    "muteSound": "Silenciar Sonido",
+    "pwaSettings": "Configuración PWA",
+    "changeLanguage": "Cambiar Idioma"
+  }
+} 

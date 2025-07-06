@@ -1,39 +1,39 @@
 import React from 'react';
-import {Button, Container, Typography} from '@mui/material';
+import {Container, Typography, Button} from '@mui/material';
 import Board from './Board';
-import Stats from './Statistic';
 import {GameLogic} from '../logic/GameLogic';
+import { BoardSquare, GameMode } from '../constants/gameConstants';
+import StatsPanel from './Statistic';
+import { useTranslation } from 'react-i18next';
 
-interface GameBoardProps {
+export interface GameBoardProps {
     game: GameLogic | null;
     onSquareClick: (idx: number) => void;
     onRestart: () => void;
-    stats: { wins: number; losses: number; draws: number };
+    stats: any;
     onResetStats: () => void;
 }
 
 const GameBoard: React.FC<GameBoardProps> = ({game, onSquareClick, onRestart, stats, onResetStats}) => {
+    const { t } = useTranslation();
+
     return (
         <Container sx={{textAlign: 'center', py: 5}}>
             <Typography variant="h4" gutterBottom>
-                Tic Tac Toe
+                {t('gameBoard.title')}
             </Typography>
-
-            <Board squares={game?.board || Array(9).fill(null)} onClick={onSquareClick}/>
-
+            <Board squares={game?.board as BoardSquare[] || []} onClick={onSquareClick}/>
             <Typography variant="h6" sx={{my: 3}}>
                 {game?.winner
                     ? game.winner === 'Draw'
-                        ? "It's a Draw!"
-                        : `Winner: ${game.winner}`
-                    : `Next player: ${game?.isPlayerTurn ? 'You' : 'AI'} (${game?.isPlayerTurn ? game?.playerSymbol : game?.aiSymbol})`}
+                        ? t('gameInfo.draw')
+                        : `${t('gameInfo.winner')}${game.winner}`
+                    : `${t('gameInfo.nextPlayer')}${game?.isPlayerTurn ? t('gameInfo.you') : t('gameInfo.ai')} (${game?.isPlayerTurn ? game?.playerSymbol : game?.aiSymbol})`}
             </Typography>
-
             <Button variant="outlined" onClick={onRestart} sx={{mb: 3}}>
-                Restart / Back to Landing
+                {t('gameBoard.restart')}
             </Button>
-
-            <Stats wins={stats.wins} losses={stats.losses} draws={stats.draws} onResetStats={onResetStats}/>
+            <StatsPanel stats={stats} playerSymbol={game?.playerSymbol || null} onResetStats={onResetStats} gameMode={GameMode.SINGLE}/>
         </Container>
     );
 };
