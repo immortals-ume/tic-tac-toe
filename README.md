@@ -228,57 +228,50 @@ Customize the appearance by modifying:
 
 ## 🚀 Deployment
 
-This project includes comprehensive GitHub Actions workflows for automated CI/CD and deployment to multiple platforms.
+This project is set up for easy deployment to **Netlify**.
 
-### 🎯 Quick Start - GitHub Pages (Recommended)
+### Deploying to Netlify
 
-The easiest way to deploy your app:
+#### Option 1: Netlify Web UI (Recommended)
+1. Go to [Netlify](https://netlify.com) and sign up/log in.
+2. Click "Add new site" > "Import an existing project".
+3. Connect your GitHub repository.
+4. Set the build command to:
+   ```bash
+   npm run build
+   ```
+5. Set the publish directory to:
+   ```
+   build
+   ```
+6. Click "Deploy site". Netlify will build and deploy your app automatically on every push to your main branch.
 
-1. **Enable GitHub Pages**:
-   - Go to your repository Settings → Pages
-   - Select "GitHub Actions" as source
-   - The workflow will automatically deploy on every push
+#### Option 2: GitHub Actions (CI/CD)
+- This repo includes a workflow at `.github/workflows/deploy-netlify.yml` for automatic deployment.
+- To use it:
+  1. Go to your Netlify dashboard > User settings > Applications > Personal access tokens. Create a token.
+  2. Go to your site settings > Site information. Copy your Site ID.
+  3. In your GitHub repo, add these secrets:
+     - `NETLIFY_AUTH_TOKEN`: your Netlify personal access token
+     - `NETLIFY_SITE_ID`: your Netlify Site ID
+  4. Push to `main` or `master` branch. The workflow will build and deploy your app to Netlify.
 
-2. **Access your app**: `https://[your-username].github.io/[repository-name]`
+#### Netlify Configuration
+- The `netlify.toml` file is already configured for optimal React SPA deployment.
+- All routes are redirected to `index.html` for client-side routing support.
 
-### 🌐 Alternative Deployment Options
+### Manual Deployment
 
-#### Option 1: Vercel (Recommended for React Apps)
-- **Automatic**: Connect your GitHub repo to Vercel
-- **Manual**: Use the `deploy-vercel.yml` workflow
-- **Features**: Automatic deployments, preview URLs, analytics
+1. Build the app:
+   ```bash
+   npm install --legacy-peer-deps
+   npm run build
+   ```
+2. Drag and drop the `build/` folder into the Netlify dashboard to deploy manually.
 
-#### Option 2: Netlify
-- **Automatic**: Connect your GitHub repo to Netlify
-- **Manual**: Use the `deploy-netlify.yml` workflow
-- **Features**: Form handling, serverless functions, CDN
+---
 
-#### Option 3: Firebase Hosting
-- **Setup**: Use the `deploy-firebase.yml` workflow
-- **Features**: Google's infrastructure, global CDN
-
-### 🔧 GitHub Actions Workflows
-
-The repository includes several automated workflows:
-
-- **`ci-cd.yml`**: Main pipeline with testing, security audit, and GitHub Pages deployment
-- **`deploy-vercel.yml`**: Vercel deployment
-- **`deploy-netlify.yml`**: Netlify deployment
-- **`deploy-firebase.yml`**: Firebase deployment
-
-### 📖 Detailed Deployment Guide
-
-For step-by-step instructions, environment variables, and troubleshooting, see [DEPLOYMENT.md](DEPLOYMENT.md).
-
-### 🛠️ Manual Deployment
-
-```bash
-# Build the app
-npm install --legacy-peer-deps
-npm run build
-
-# Upload the 'build' folder to your hosting provider
-```
+For any issues, check the Netlify deploy logs or open an issue in this repository.
 
 ## 🤝 Contributing
 
