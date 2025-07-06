@@ -44,7 +44,14 @@
         "name": "self",
         "message": "Use with caution. Add exception only if required."
       },
-    "export","import"
+    {
+      "name": "import",
+      "message": "Use with caution. Add exception only if required."
+    },
+    {
+      "name": "export",
+      "message": "Use with caution. Add exception only if required."
+    }
     ]
   },
   "settings": {
