@@ -228,20 +228,57 @@ Customize the appearance by modifying:
 
 ## 🚀 Deployment
 
-### Netlify
-1. Connect your GitHub repository
-2. Set build command: `npm run build`
-3. Set publish directory: `build`
+This project includes comprehensive GitHub Actions workflows for automated CI/CD and deployment to multiple platforms.
 
-### Vercel
-1. Import your GitHub repository
-2. Vercel will auto-detect React settings
-3. Deploy with default settings
+### 🎯 Quick Start - GitHub Pages (Recommended)
 
-### GitHub Pages
-1. Add `"homepage": "https://yourusername.github.io/tic-tac-toe"` to package.json
-2. Run `npm run build`
-3. Deploy the `build` folder to GitHub Pages
+The easiest way to deploy your app:
+
+1. **Enable GitHub Pages**:
+   - Go to your repository Settings → Pages
+   - Select "GitHub Actions" as source
+   - The workflow will automatically deploy on every push
+
+2. **Access your app**: `https://[your-username].github.io/[repository-name]`
+
+### 🌐 Alternative Deployment Options
+
+#### Option 1: Vercel (Recommended for React Apps)
+- **Automatic**: Connect your GitHub repo to Vercel
+- **Manual**: Use the `deploy-vercel.yml` workflow
+- **Features**: Automatic deployments, preview URLs, analytics
+
+#### Option 2: Netlify
+- **Automatic**: Connect your GitHub repo to Netlify
+- **Manual**: Use the `deploy-netlify.yml` workflow
+- **Features**: Form handling, serverless functions, CDN
+
+#### Option 3: Firebase Hosting
+- **Setup**: Use the `deploy-firebase.yml` workflow
+- **Features**: Google's infrastructure, global CDN
+
+### 🔧 GitHub Actions Workflows
+
+The repository includes several automated workflows:
+
+- **`ci-cd.yml`**: Main pipeline with testing, security audit, and GitHub Pages deployment
+- **`deploy-vercel.yml`**: Vercel deployment
+- **`deploy-netlify.yml`**: Netlify deployment
+- **`deploy-firebase.yml`**: Firebase deployment
+
+### 📖 Detailed Deployment Guide
+
+For step-by-step instructions, environment variables, and troubleshooting, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
+### 🛠️ Manual Deployment
+
+```bash
+# Build the app
+npm install --legacy-peer-deps
+npm run build
+
+# Upload the 'build' folder to your hosting provider
+```
 
 ## 🤝 Contributing
 

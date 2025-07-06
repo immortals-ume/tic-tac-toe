@@ -7,7 +7,8 @@
   },
   "extends": [
     "react-app",
-    "react-app/jest"
+    "react-app/jest",
+    "eslint:recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -38,21 +39,7 @@
     "react/no-array-index-key": "warn",
     "react/no-unescaped-entities": "error",
     "react/void-dom-elements-no-children": "error",
-  "  no-restricted-globals": [
-      "error",
-      {
-        "name": "self",
-        "message": "Use with caution. Add exception only if required."
-      },
-    {
-      "name": "import",
-      "message": "Use with caution. Add exception only if required."
-    },
-    {
-      "name": "export",
-      "message": "Use with caution. Add exception only if required."
-    }
-    ]
+    "no-restricted-globals": ["error", "event", "fdescribe"]
   },
   "settings": {
     "react": {
