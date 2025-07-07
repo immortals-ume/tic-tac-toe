@@ -6,6 +6,7 @@ export const isOnline = (): boolean => {
   return navigator.onLine;
 };
 
+
 export const getServiceWorkerRegistration = async (): Promise<ServiceWorkerRegistration | null> => {
   if (!isServiceWorkerSupported()) {
     return null;
