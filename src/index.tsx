@@ -4,11 +4,14 @@ import App from './App';
 import {CustomThemeProvider} from './theme/ThemeContext';
 import reportWebVitals from "./reportWebVitals";
 import './i18n'; // Initialize i18n
+import ErrorBoundary from './components/ErrorBoundary';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <CustomThemeProvider>
-            <App/>
+            <ErrorBoundary>
+                <App/>
+            </ErrorBoundary>
         </CustomThemeProvider>
     </React.StrictMode>
 );
