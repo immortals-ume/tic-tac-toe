@@ -25,3 +25,4 @@ yarn-error.log*
 /.idea
 SECURITY_SCAN_REPORT.md
 package-lock.json
+.env
