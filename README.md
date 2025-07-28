@@ -100,9 +100,9 @@ The build files will be created in the `build/` directory, ready for deployment.
 
 ## 🛠️ Technology Stack
 
-- **Frontend Framework**: React 19.1.0
+- **Frontend Framework**: React 18.2.0
 - **Language**: TypeScript 4.9.5
-- **UI Library**: Material-UI (MUI) 7.1.0
+- **UI Library**: Material-UI (MUI) 5.15.20
 - **Internationalization**: react-i18next
 - **Build Tool**: Create React App 5.0.1
 - **PWA**: Service Worker with offline support
